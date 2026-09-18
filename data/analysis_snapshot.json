@@ -1,0 +1,85 @@
+{
+  "dataset_note": "Synthetic fixed demonstration data for prototype only; not empirical findings.",
+  "n": 45,
+  "cell_summary": {
+    "A": {
+      "n": 11,
+      "mean": 52.8,
+      "sd": 4.64,
+      "se": 1.4,
+      "ci95_low": 50.05,
+      "ci95_high": 55.54,
+      "scope_mean": 3.36,
+      "colour_mean": 65.27
+    },
+    "B": {
+      "n": 11,
+      "mean": 59.39,
+      "sd": 5.44,
+      "se": 1.64,
+      "ci95_low": 56.17,
+      "ci95_high": 62.6,
+      "scope_mean": 4.36,
+      "colour_mean": 50.45
+    },
+    "C": {
+      "n": 11,
+      "mean": 57.75,
+      "sd": 5.54,
+      "se": 1.67,
+      "ci95_low": 54.48,
+      "ci95_high": 61.02,
+      "scope_mean": 4.0,
+      "colour_mean": 68.36
+    },
+    "D": {
+      "n": 12,
+      "mean": 77.17,
+      "sd": 4.56,
+      "se": 1.32,
+      "ci95_low": 74.59,
+      "ci95_high": 79.75,
+      "scope_mean": 6.04,
+      "colour_mean": 53.17
+    }
+  },
+  "anova": [
+    {
+      "term": "Disclosure specificity",
+      "df": 1,
+      "ss": 238.92,
+      "ms": 238.92,
+      "F": 9.36,
+      "p": 0.003905075394635521,
+      "partial_eta2": 0.186
+    },
+    {
+      "term": "Accountability cue",
+      "df": 1,
+      "ss": 135.01,
+      "ms": 135.01,
+      "F": 5.29,
+      "p": 0.026648470790431377,
+      "partial_eta2": 0.114
+    },
+    {
+      "term": "Specificity \u00d7 Accountability",
+      "df": 1,
+      "ss": 462.0,
+      "ms": 462.0,
+      "F": 18.09,
+      "p": 0.00011884685752727473,
+      "partial_eta2": 0.306
+    }
+  ],
+  "h1_specific_minus_generic": 13.39,
+  "h2_accountability_minus_none": 11.79,
+  "h3_difference_in_differences": 12.83,
+  "planned_D_minus_A": 24.37,
+  "planned_D_minus_A_t": 12.69,
+  "planned_D_minus_A_p": 2.5695568734429826e-11,
+  "alpha_dv": 0.975,
+  "alpha_scope": 0.782,
+  "mc_disclosure_accuracy": 0.911,
+  "mc_accountability_accuracy": 0.889
+}
