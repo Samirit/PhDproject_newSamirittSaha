@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Online Product Listing Study</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6f6;color:#111;font-family:Arial,Helvetica,sans-serif}
+header{background:#17324d;color:white;padding:26px 30px}header h1{margin:0 0 6px;font-size:26px}header p{margin:0;color:#dbe7ef;font-size:13px}
+.wrap{max-width:900px;margin:36px auto;padding:0 20px}.card{background:white;border:1px solid #d6dce1;border-radius:12px;padding:25px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:18px}
+h2{margin:0 0 12px;font-size:21px}p,li,label{font-size:14px;line-height:1.55}.checks label{display:block;margin:10px 0}
+.btn{display:inline-block;border:0;border-radius:22px;padding:11px 20px;font-weight:700;font-size:14px;text-decoration:none;cursor:pointer}
+.start{background:#ffd814;color:#111;border:1px solid #fcd200}.admin{background:#eef3f7;color:#17324d;border:1px solid #aab9c5}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px}.small{color:#5d6872;font-size:12px}.warn{display:none;color:#8b0000;margin-top:10px;font-size:13px}
+footer{max-width:900px;margin:0 auto 40px;padding:0 20px;color:#68727b;font-size:12px}
+</style></head>
+<body>
+<header><h1>Online Product Listing Study</h1><p>Doctoral Research · Information Systems Area · Indian Institute of Management Bangalore</p></header>
+<div class="wrap">
+<section class="card">
+<h2>Study information</h2>
+<p>You will view one online product listing and then answer a short questionnaire about how you interpreted the information shown on the page. Please respond based only on what you see in the listing.</p>
+<p>Your participation is voluntary. This prototype uses a study code rather than your name.</p>
+<div class="checks">
+<label><input type="checkbox" id="c1"> I am 18 years or older and consent to participate in this research prototype.</label>
+<label><input type="checkbox" id="c2"> I have made an online purchase within the recent past.</label>
+<label><input type="checkbox" id="c3"> I have previously encountered or heard about generative-AI content or labels.</label>
+</div>
+<div id="warn" class="warn">Please confirm all three items before starting.</div>
+<div class="actions"><button class="btn start" onclick="startStudy()">Start Study</button><a class="btn admin" href="researcher_dashboard.html">Researcher Analytics</a></div>
+<p class="small">The product page is a research stimulus and is clearly marked accordingly.</p>
+</section>
+</div>
+<footer>Information Systems doctoral research prototype · IIM Bangalore</footer>
+<script>
+function startStudy(){
+  const ok=["c1","c2","c3"].every(id=>document.getElementById(id).checked);
+  if(!ok){document.getElementById("warn").style.display="block";return;}
+  document.getElementById("warn").style.display="none";
+  let c=sessionStorage.getItem("assigned_condition");
+  if(!["A","B","C","D"].includes(c)){c=["A","B","C","D"][Math.floor(Math.random()*4)];sessionStorage.setItem("assigned_condition",c);}
+  location.href="condition_"+c+".html";
+}
+</script></body></html>

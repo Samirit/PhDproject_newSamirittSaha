@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amazon - Product Listing Study</title>
+<style>
+:root{--nav:#131921;--nav2:#232f3e;--orange:#ff9900;--yellow:#ffd814;--buy:#ffa41c;--link:#007185;--text:#0f1111;--muted:#565959;--border:#d5d9d9}
+*{box-sizing:border-box}html,body{margin:0;background:#fff;color:var(--text);font-family:Arial,Helvetica,sans-serif}body{min-width:1020px}
+a{color:var(--link);text-decoration:none}a:hover{color:#c7511f;text-decoration:underline}
+.top{height:60px;background:var(--nav);color:white;display:flex;align-items:center;gap:15px;padding:0 18px}
+.brand{display:flex;align-items:center;gap:8px;min-width:215px}.logo{font-size:29px;font-weight:700;letter-spacing:-1.8px;position:relative;line-height:1}
+.logo:after{content:"";position:absolute;left:15px;bottom:-8px;width:56px;height:11px;border-bottom:3px solid var(--orange);border-radius:50%;transform:rotate(3deg)}
+.research{font-size:10px;line-height:1.13;color:#d5d9d9;max-width:112px}
+.delivery{font-size:11px;line-height:1.2;min-width:130px}.delivery b{display:block;font-size:13px}
+.search{height:40px;display:flex;flex:1;overflow:hidden;border-radius:6px}.search select{width:58px;border:0;background:#e6e6e6}.search input{flex:1;border:0;padding:0 12px;font-size:15px}.search button{width:48px;border:0;background:#febd69;font-size:20px}
+.account,.orders{font-size:11px;white-space:nowrap}.account b,.orders b{display:block;font-size:13px}.cart{font-size:22px;font-weight:700;white-space:nowrap}
+.nav{height:39px;background:var(--nav2);color:white;display:flex;align-items:center;gap:22px;padding:0 18px;font-size:13px}
+.sub{height:42px;border-bottom:1px solid #ddd;display:flex;align-items:center;gap:30px;padding:0 24px;font-size:13px}.sub strong{font-size:18px}
+.crumbs{padding:13px 24px 9px;color:var(--muted);font-size:12px}
+.layout{max-width:1580px;margin:auto;padding:0 22px 55px;display:grid;grid-template-columns:43% 35% 22%;gap:20px}
+.gallery{display:grid;grid-template-columns:64px 1fr;gap:12px;min-height:650px;align-self:start}.thumbs{display:flex;flex-direction:column;gap:9px}
+.thumb{width:57px;height:67px;border:1px solid var(--border);border-radius:7px;overflow:hidden;background:#fff}.thumb.active{border:2px solid #007185;box-shadow:0 0 0 2px #c8f3fa}
+.thumb img{width:100%;height:100%;object-fit:cover}.thumb.detail img{width:145%;height:145%;transform:translate(-15%,-18%)}
+.hero{height:650px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:#fff;cursor:zoom-in}.hero img{width:95%;height:95%;object-fit:contain;transition:.18s}
+.hero:hover img{transform:scale(1.07)}.zoom{position:absolute;bottom:4px;left:0;right:0;text-align:center;color:#565959;font-size:13px;background:rgba(255,255,255,.86);padding:4px}
+.store{font-size:14px}h1{font-size:24px;line-height:1.25;font-weight:500;margin:4px 0 6px}.rating{display:flex;gap:7px;align-items:center;font-size:14px}.stars{color:#de7921;font-size:19px;letter-spacing:-2px}
+.choice{display:inline-flex;margin:7px 0 9px}.choice b{background:#232f3e;color:#fff;padding:5px 7px;font-size:12px}.choice span{padding:5px 7px;color:#007185;font-size:12px}
+hr{border:0;border-top:1px solid #ddd;margin:12px 0}.deal{display:inline-block;background:#cc0c39;color:#fff;padding:5px 9px;border-radius:3px;font-size:13px;font-weight:700}
+.priceRow{display:flex;gap:8px;align-items:flex-start;margin-top:8px}.discount{font-size:28px;color:#cc0c39;font-weight:300}.price{font-size:30px}.price sup{font-size:14px;position:relative;top:-.7em}
+.mrp{font-size:13px;color:#565959}.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.offer{border:1px solid var(--border);border-radius:8px;padding:10px;min-height:103px;font-size:12px;line-height:1.4;box-shadow:0 1px 2px rgba(0,0,0,.06)}.offer b{display:block;font-size:13px;margin-bottom:4px}
+.benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding:15px 0;margin-top:14px}.benefit{text-align:center;color:#007185;font-size:11px}.circle{width:34px;height:34px;margin:0 auto 5px;border:1.5px solid #007185;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.aiBox{margin-top:14px;border:1px solid #d5d9d9;background:#f3f6f6;border-radius:8px;overflow:hidden}.aiPrimary{display:flex;align-items:flex-start;gap:9px;padding:10px 11px 8px;font-size:13px;line-height:1.35}.aiBadge{background:#232f3e;color:#fff;border-radius:5px;padding:4px 6px;font-size:10px;font-weight:700;flex:none}.aiSecondary{border-top:1px solid #e3e6e6;padding:7px 11px 8px 43px;font-size:11px;color:#565959}
+.specs{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}.specs td{padding:4px 7px 4px 0}.specs td:first-child{width:145px;font-weight:700}
+.about h2{font-size:17px;margin:16px 0 7px}.about ul{padding-left:19px;font-size:13px;line-height:1.45;margin-top:0}.about li{margin:5px 0}
+.buybox{align-self:start;border:1px solid var(--border);border-radius:8px;padding:16px}.buyprice{font-size:29px}.buyprice sup{font-size:13px;position:relative;top:-.8em}.deliveryText{font-size:13px;line-height:1.45;margin-top:10px}.location{color:#007185;font-size:12px;margin:13px 0}.stock{color:#007600;font-size:18px;margin:12px 0}.qty{width:100%;padding:7px;border:1px solid var(--border);border-radius:8px;background:#f0f2f2;margin-bottom:10px}
+.action{width:100%;border:0;border-radius:20px;padding:10px;margin:4px 0;font-size:13px}.add{background:var(--yellow)}.buy{background:var(--buy)}.seller{font-size:12px;line-height:1.5;margin:11px 0}.secure{font-size:12px;color:#007185;margin:8px 0}.wish{width:100%;padding:8px;background:#fff;border:1px solid #adb1b8;border-radius:6px;text-align:left}
+.continueWrap{max-width:1536px;margin:0 auto 45px;padding:20px 24px;border-top:1px solid #ddd;text-align:right}.continue{display:inline-block;background:#ffd814;border:1px solid #fcd200;color:#0f1111;text-decoration:none;font-weight:700;border-radius:22px;padding:12px 24px;font-size:14px}
+@media(max-width:1180px){body{min-width:930px}.layout{grid-template-columns:40% 37% 23%;gap:12px;padding-left:14px;padding-right:14px}.offers{grid-template-columns:1fr}h1{font-size:21px}.hero{height:590px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="logo">amazon</div><div class="research">(Designed for Research Proposal)</div></div>
+  <div class="delivery">⌖ Deliver to<b>Bengaluru 000000</b></div>
+  <div class="search"><select><option>All</option><option>Fashion</option></select><input placeholder="Search Amazon"><button>⌕</button></div>
+  <div class="account">Hello, sign in<b>Account &amp; Lists⌄</b></div>
+  <div class="orders">Returns<b>&amp; Orders</b></div><div class="cart">🛒 <span style="font-size:14px">Cart</span></div>
+</header>
+<nav class="nav"><b>☰ All</b><span>Today's Deals</span><span>Customer Service</span><span>Electronics</span><span><b>Fashion</b></span><span>Home &amp; Kitchen</span><span>Books</span><span>Beauty</span><span>Toys &amp; Games</span><span>Prime⌄</span></nav>
+<div class="sub"><strong>Fashion</strong><span>Women</span><span>Men</span><span>Kids</span><span>Bags &amp; Luggage</span><span>Watches</span><span>Jewellery</span><span>Beauty</span><span>Premium Brands</span></div>
+<div class="crumbs">Fashion › Women › Handbags &amp; Clutches › Tote Bags</div>
+
+<main class="layout">
+<section class="gallery">
+  <div class="thumbs">
+    <div class="thumb active"><img src="assets/handbag_listing_bright_glossy.png"></div>
+    <div class="thumb detail"><img src="assets/handbag_listing_bright_glossy.png"></div>
+    <div class="thumb detail"><img src="assets/handbag_listing_bright_glossy.png"></div>
+  </div>
+  <div class="hero"><img src="assets/handbag_listing_bright_glossy.png" alt="Aurelia mustard handbag"><div class="zoom">Roll over image to zoom in</div></div>
+</section>
+
+<section>
+  <div class="store"><a href="#">Visit the Aurelia Store</a></div>
+  <h1>Aurelia Women's Classic Structured Tote Handbag with Zip Closure - Mustard Yellow</h1>
+  <div class="rating"><span>4.4</span><span class="stars">★★★★☆</span><a href="#">2,846 ratings</a><span>|</span><a href="#">Search this page</a></div>
+  <div class="choice"><b>Amazon's Choice</b><span>for “mustard handbag for women”</span></div>
+  <div style="font-size:13px;font-weight:700;margin-bottom:10px">500+ bought in past month</div><hr>
+  <span class="deal">Limited time deal</span>
+  <div class="priceRow"><span class="discount">-32%</span><span class="price"><sup>₹</sup>2,399</span></div>
+  <div class="mrp">M.R.P.: <s>₹3,499</s></div><div style="font-size:13px;margin-top:3px">Inclusive of all taxes</div>
+
+  <div class="offers">
+    <div class="offer"><b>Bank Offer</b>Up to ₹250 instant discount on select cards<br><a href="#">2 offers ›</a></div>
+    <div class="offer"><b>No Cost EMI</b>Up to 3 months EMI on eligible cards<br><a href="#">Details ›</a></div>
+    <div class="offer"><b>Partner Offers</b>Additional savings on selected payment methods<br><a href="#">1 offer ›</a></div>
+  </div>
+
+  <div class="benefits">
+    <div class="benefit"><div class="circle">🚚</div>Free Delivery</div>
+    <div class="benefit"><div class="circle">↩</div>10 Days<br>Returnable</div>
+    <div class="benefit"><div class="circle">✓</div>1 Year<br>Warranty</div>
+    <div class="benefit"><div class="circle">₹</div>Pay on<br>Delivery</div>
+    <div class="benefit"><div class="circle">🔒</div>Secure<br>Transaction</div>
+  </div>
+
+  <div class="aiBox">
+    <div class="aiPrimary"><span class="aiBadge">AI</span><strong>AI-assisted colour adjustment was applied to the product body: hue, saturation and brightness were modified for digital presentation.</strong></div>
+    <div class="aiSecondary">This AI label is auto generated by Amazon.com</div>
+  </div>
+
+  <table class="specs">
+    <tr><td>Brand</td><td>Aurelia</td></tr>
+    <tr><td>Colour</td><td>Dark Mustard</td></tr>
+    <tr><td>Material</td><td>Premium vegan leather</td></tr>
+    <tr><td>Product Dimensions</td><td>31 × 13 × 27 cm (L × W × H)</td></tr>
+    <tr><td>Closure Type</td><td>Zip</td></tr>
+    <tr><td>Strap Type</td><td>Double shoulder handles</td></tr>
+    <tr><td>Item Weight</td><td>670 g</td></tr>
+  </table>
+
+  <div class="about">
+    <h2>About this item</h2>
+    <ul>
+      <li><strong>Classic structured tote:</strong> designed for work, travel and everyday use.</li>
+      <li><strong>Premium vegan leather:</strong> with a <strong>fine-grain, lightly pebbled texture</strong> for a refined tactile feel.</li>
+      <li><strong>Soft matte finish:</strong> the exterior has a <strong>low-gloss surface</strong> that keeps the dark-mustard tone understated.</li>
+      <li><strong>Shape-retaining construction:</strong> clean symmetrical lines with reinforced side panels help the bag retain its form.</li>
+      <li><strong>Neat tonal stitching:</strong> runs along the handles, top edge and side seams.</li>
+      <li><strong>Spacious main compartment:</strong> includes internal slip and zip pockets for everyday essentials.</li>
+      <li><strong>Antique-gold hardware:</strong> adds a subtle contrast to the mustard body.</li>
+    </ul>
+  </div>
+</section>
+
+<aside class="buybox">
+  <div class="buyprice"><sup>₹</sup>2,399</div><div style="font-size:12px">Inclusive of all taxes</div>
+  <div class="deliveryText"><b>FREE delivery Tuesday, 15 September.</b><br>Order within 8 hrs 21 mins.</div>
+  <div class="location">⌖ Deliver to Bengaluru 000000</div><div class="stock">In stock</div>
+  <select class="qty"><option>Quantity: 1</option><option>Quantity: 2</option></select>
+  <button class="action add">Add to Cart</button><button class="action buy">Buy Now</button>
+  <div class="seller">Ships from <a href="#">Amazon</a><br>Sold by <a href="#">Aurelia Retail</a></div>
+  <div class="secure">🔒 Secure transaction</div><label style="font-size:12px"><input type="checkbox"> Add gift options</label><hr>
+  <button class="wish">Add to Wish List</button>
+</aside>
+</main>
+
+<div class="continueWrap"><a class="continue" href="survey.html?condition=B">Continue</a></div>
+</body></html>

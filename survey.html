@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product Listing Study - Questionnaire</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6f6;color:#111;font-family:Arial,Helvetica,sans-serif}
+header{background:#17324d;color:white;padding:22px 28px}header h1{margin:0 0 5px;font-size:24px}header p{margin:0;color:#dbe7ef;font-size:13px}
+.wrap{max-width:900px;margin:28px auto;padding:0 20px 60px}.card{background:white;border:1px solid #d6dce1;border-radius:10px;padding:22px;margin-bottom:16px}
+h2{font-size:19px;margin:0 0 9px}p,label{font-size:14px;line-height:1.5}.small{font-size:12px;color:#5f6870}
+.question{border-top:1px solid #eee;padding-top:16px;margin-top:16px}.question:first-child{border-top:0;padding-top:0;margin-top:0}.qtitle{font-size:14px;font-weight:700;margin-bottom:8px}
+.rangeRow{display:grid;grid-template-columns:105px 1fr 55px;gap:12px;align-items:center}.rangeRow input{width:100%}.value{border:1px solid #ccd2d7;border-radius:6px;padding:5px;text-align:center;font-weight:700}
+.likert{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px}.likert label{border:1px solid #d6dce1;border-radius:7px;padding:8px 3px;text-align:center}.likert input{display:block;margin:0 auto 5px}
+.radios label{display:block;border:1px solid #d6dce1;border-radius:8px;padding:10px;margin:7px 0}input[type=text]{width:100%;padding:9px;border:1px solid #cbd2d7;border-radius:7px}
+.btn{border:0;border-radius:20px;padding:11px 18px;font-size:13px;font-weight:700;cursor:pointer;background:#ffd814}.error{display:none;background:#fff0f0;border:1px solid #cc6b6b;color:#8b0000;border-radius:8px;padding:10px;margin:12px 0}
+.debrief{display:none;background:#f2f8f2;border:1px solid #9ac59a;border-radius:8px;padding:15px;margin-top:16px}
+</style></head><body>
+<header><h1>Product Listing Study</h1><p>Questionnaire</p></header>
+<div class="wrap"><form id="f">
+<section class="card"><h2>Confidence in product-image match</h2><p class="small">How confident are you that the product you receive would match the image on each feature below?</p>
+<div class="question"><div class="qtitle">1. Texture</div><div class="rangeRow"><span>Not confident</span><input name="confidence_texture" type="range" min="0" max="100" value="50"><output class="value">50</output></div></div>
+<div class="question"><div class="qtitle">2. Gloss / surface shine</div><div class="rangeRow"><span>Not confident</span><input name="confidence_gloss" type="range" min="0" max="100" value="50"><output class="value">50</output></div></div>
+<div class="question"><div class="qtitle">3. Shape</div><div class="rangeRow"><span>Not confident</span><input name="confidence_shape" type="range" min="0" max="100" value="50"><output class="value">50</output></div></div>
+<div class="question"><div class="qtitle">4. Stitching</div><div class="rangeRow"><span>Not confident</span><input name="confidence_stitching" type="range" min="0" max="100" value="50"><output class="value">50</output></div></div>
+<div class="question"><div class="qtitle">5. Colour</div><div class="rangeRow"><span>Not confident</span><input name="confidence_colour" type="range" min="0" max="100" value="50"><output class="value">50</output></div></div>
+</section>
+
+<section class="card"><h2>How you interpreted the disclosure</h2><p class="small">Please indicate how strongly you agree or disagree.</p>
+<div class="question"><div class="qtitle">6. The disclosure identified the important AI changes.</div><div class="likert">
+<label><input required type="radio" name="scope_identified_changes" value="1">1<br><span class="small">Strongly disagree</span></label>
+<label><input type="radio" name="scope_identified_changes" value="2">2</label><label><input type="radio" name="scope_identified_changes" value="3">3</label>
+<label><input type="radio" name="scope_identified_changes" value="4">4</label><label><input type="radio" name="scope_identified_changes" value="5">5</label>
+<label><input type="radio" name="scope_identified_changes" value="6">6</label><label><input type="radio" name="scope_identified_changes" value="7">7<br><span class="small">Strongly agree</span></label></div></div>
+<div class="question"><div class="qtitle">7. Unmentioned features were not materially altered.</div><div class="likert">
+<label><input required type="radio" name="scope_unmentioned_unchanged" value="1">1<br><span class="small">Strongly disagree</span></label>
+<label><input type="radio" name="scope_unmentioned_unchanged" value="2">2</label><label><input type="radio" name="scope_unmentioned_unchanged" value="3">3</label>
+<label><input type="radio" name="scope_unmentioned_unchanged" value="4">4</label><label><input type="radio" name="scope_unmentioned_unchanged" value="5">5</label>
+<label><input type="radio" name="scope_unmentioned_unchanged" value="6">6</label><label><input type="radio" name="scope_unmentioned_unchanged" value="7">7<br><span class="small">Strongly agree</span></label></div></div>
+</section>
+
+<section class="card"><h2>Listing recall</h2>
+<div class="question radios"><div class="qtitle">8. What did the disclosure say the AI changed?</div>
+<label><input required type="radio" name="manipulation_disclosure" value="colour"> Colour</label>
+<label><input type="radio" name="manipulation_disclosure" value="not_specified"> It did not specify a particular attribute</label>
+<label><input type="radio" name="manipulation_disclosure" value="unsure"> Unsure / do not remember</label></div>
+<div class="question radios"><div class="qtitle">9. Did the page state who is responsible if the listing image is inaccurate?</div>
+<label><input required type="radio" name="manipulation_accountability" value="yes"> Yes</label>
+<label><input type="radio" name="manipulation_accountability" value="no"> No</label>
+<label><input type="radio" name="manipulation_accountability" value="unsure"> Unsure / do not remember</label></div>
+</section>
+
+<section class="card"><h2>Response code</h2>
+<label><b>Participant ID</b> <span class="small">(study code only; do not enter your name)</span></label>
+<input required name="participant_id" type="text" placeholder="e.g., P046">
+<div id="err" class="error">Please complete every required item.</div>
+<p style="margin-top:16px"><button class="btn" type="submit">Submit response</button></p>
+<div id="debrief" class="debrief"><b>Debrief</b><p>This study examines how people interpret the scope of AI-image disclosures. In the stimulus construction, colour, texture and gloss were treated as edited features. The disclosure wording and responsibility cue varied across conditions. This information was withheld until after the questionnaire so it would not influence your answers.</p></div>
+</section></form></div>
+<script>
+const params=new URLSearchParams(location.search); const condition=(params.get("condition")||sessionStorage.getItem("assigned_condition")||"").toUpperCase();
+document.querySelectorAll('input[type="range"]').forEach(r=>{const o=r.parentElement.querySelector("output");const u=()=>o.textContent=r.value;r.addEventListener("input",u);u()});
+document.getElementById("f").addEventListener("submit",async function(e){
+ e.preventDefault(); if(!this.checkValidity()||!["A","B","C","D"].includes(condition)){document.getElementById("err").style.display="block";this.reportValidity();return}
+ document.getElementById("err").style.display="none"; const fd=new FormData(this); const d=Object.fromEntries(fd.entries());
+ d.condition=condition; d.recent_online_purchase="yes"; d.prior_genai_exposure="yes"; d.submitted_at=new Date().toISOString();
+ d.dv_mean_undisclosed=((+d.confidence_texture + +d.confidence_gloss + +d.confidence_shape + +d.confidence_stitching)/4).toFixed(2);
+ d.scope_inference_mean=((+d.scope_identified_changes + +d.scope_unmentioned_unchanged)/2).toFixed(2);
+ let saved=false;
+ if(location.protocol.startsWith("http")){try{const r=await fetch("/api/submit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});saved=r.ok}catch(e){}}
+ if(!saved){
+   const keys=Object.keys(d), esc=v=>'"'+String(v??"").replaceAll('"','""')+'"';
+   const csv=keys.map(esc).join(",")+"\n"+keys.map(k=>esc(d[k])).join(",");
+   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=`IIMB_IS_${condition}_${d.participant_id}.csv`;document.body.appendChild(a);a.click();a.remove();
+ }
+ document.getElementById("debrief").style.display="block";document.getElementById("debrief").scrollIntoView({behavior:"smooth"});
+});
+</script></body></html>
